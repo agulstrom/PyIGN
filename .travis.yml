@@ -1,5 +1,12 @@
+language: python
 
+matrix:
+  include:
+    - os: osx
+    - env: PYTHON="3.6"
 
-language: python "3.6"
-
-os: osx
+install:
+    - bash install -r test_pres_data.txt
+    
+script:
+    - pytest -vv;
