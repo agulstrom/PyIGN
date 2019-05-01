@@ -1,6 +1,7 @@
-## Data from the pressure transducer sensors is read and formated
+"""Data from the pressure transducer sensors is read and formatted"""
 import numpy as np
 import pandas as pd
+
 
 class Nominal:
     def __init__(self):
@@ -12,13 +13,11 @@ def setEngine():
 
 
 def getPressure(filename):
+    """Reads pressure data and creates an array"""
     try:
         data = np.loadtxt(filename)
-
     except IOError:
         print ('File Error', filename)
-
-    #return (data)
     p_data = []
     for line in data:
         p_data.append(float(line))
@@ -26,6 +25,7 @@ def getPressure(filename):
 
 
 def evalPressure(p_list):
+    """Evaluates pressure data from each pressure transducer"""
     length = p_list[p_list>500]
     if length > 0:
         nom = setEngine()
@@ -43,11 +43,6 @@ def evalPressure(p_list):
 
 
 
-
-
-
-
-
-if __name__ == '__main__':
-#    vlv_state = np.ones((1,7),int)
-#    values = getPressure("test_pres_data.txt")
+    #if __name__ == '__main__':
+    #vlv_state = np.ones((1,7),int)
+    #values = getPressure("test_pres_data.txt")

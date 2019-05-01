@@ -1,8 +1,8 @@
 import numpy as np
-
 import sns_read as sr
 
 def setState(vlv_state):
+    """Evaluates the pressure data results and alters the valve state"""
     nominal = evalPressure()
     if nominal == 0:
         vlv_state = np.zeros((1,7),int)
