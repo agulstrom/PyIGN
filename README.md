@@ -1,2 +1,2 @@
-# ignition
-Liquid Rocket Engine Controls Package
+# PyIgn
+PyIgnite - Liquid Rocket Engine Controls Package
