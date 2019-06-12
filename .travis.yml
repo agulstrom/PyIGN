@@ -29,3 +29,6 @@ install:
 
 script:
   - pytest -vv --cov=./;
+  
+after_success:
+  - coveralls
