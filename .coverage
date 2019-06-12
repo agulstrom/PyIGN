@@ -1,6 +1,7 @@
 [run]
 omit =
-    *__init__*
-    *__main__*
-    *_version.py
-    *setup.py
+    _version.py
+    pyign/__init__.py
+    pyign/functions/__init__.py
+    pyign/functions/__main__.py
+    setup.py
