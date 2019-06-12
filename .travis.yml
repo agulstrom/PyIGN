@@ -23,6 +23,7 @@ install:
   - conda install python=${PYTHON}
   - conda install pytest>=3.2.0
   - conda install pytest-cov
+  - conda install coveralls
   - conda install numpy
   - conda info -a
   - conda list
