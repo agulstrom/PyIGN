@@ -28,4 +28,4 @@ install:
   - conda list
 
 script:
-- pytest -vv --cov=./;
+  - pytest -vv --cov=./;
