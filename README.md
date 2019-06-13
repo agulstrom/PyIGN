@@ -11,9 +11,10 @@ The Python Ignite (PyIGN) package tool is used to interface with a Nation Instru
 Navigate Installer folder or Example.rst
 
 Once in pyign folder from command line:
-python functions -s
-python functions -g
-python functions -t
+
+- python functions -s
+- python functions -g
+- python functions -t
 
 # Installation
 The PyIGN package relies on other libraries:
