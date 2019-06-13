@@ -1,4 +1,4 @@
-# PyIGN, version 1.0.3 released on 2019-06-13
+# PyIGN, version 1.0.4 released on 2019-06-13
 
 [![Build Status](https://travis-ci.com/devonburson/PyIGN.svg?branch=master)](https://travis-ci.com/devonburson/PyIGN)
 [![Coverage Status](https://coveralls.io/repos/github/devonburson/PyIGN/badge.svg?branch=master)](https://coveralls.io/github/devonburson/PyIGN?branch=master)
