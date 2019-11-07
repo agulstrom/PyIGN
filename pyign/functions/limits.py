@@ -6,16 +6,18 @@ class PTLimits(object):
 
         Attributes
         ----------
-        pt : pressure transducers [7]
-        a : pressure transducer PT-OX-110
-        b : pressure transducer PT-FU-120
-        c : pressure transducer PT-OX-210
-        d : pressure transducer PT-FU-310
-        e : pressure transducer PT-OX-220
-        f : pressure transducer PT-FU-320
-        g : pressure transducer PT-CC-410
+        pt : pressure transducers [8]
+        a : pressure transducer PT-PR-110
+        b : pressure transducer PT-OX-120
+        c : pressure transducer PT-FU-130
+        d : pressure transducer PT-OX-210
+        e : pressure transducer PT-FU-310
+        f : pressure transducer PT-OX-220
+        g : pressure transducer PT-FU-320
+        h : pressure transducer PT-CC-410
         """
-    def __init__(self, pt_a=800, pt_b=800, pt_c=800, pt_d=800, pt_e=750, pt_f=750, pt_g=900):
+
+    def __init__(self, pt_a=3000, pt_b=800, pt_c=800, pt_d=800, pt_e=800, pt_f=750, pt_g=750, pt_h=900):
         self._pt_a = pt_a
         self._pt_b = pt_b
         self._pt_c = pt_c
@@ -23,55 +25,62 @@ class PTLimits(object):
         self._pt_e = pt_e
         self._pt_f = pt_f
         self._pt_g = pt_g
-        self._pt_limits = [pt_a, pt_b, pt_c, pt_d, pt_e, pt_f, pt_g]  #Pressure Transducers
+        self._pt_h = pt_h
+        self._pt_limits = [pt_a, pt_b, pt_c, pt_d, pt_e, pt_f, pt_g, pt_h]  #Pressure Transducers
 
     @property
     def pt_limits(self):
-        self._pt_limits = [self._pt_a, self._pt_b, self._pt_c, self._pt_d, self._pt_e, self._pt_f, self._pt_g]
+        self._pt_limits = [self._pt_a, self._pt_b, self._pt_c, self._pt_d, self._pt_e, self._pt_f, self._pt_g, self._pt_h]
         return self._pt_limits
     @property
     def pt_a(self):
-        return self._pt_a #Pressure Transducer a PT-OX-110
+        return self._pt_a  #Pressure Transducer a PT-PR-110
     @property
     def pt_b(self):
-        return self._pt_b #Pressure Transducer b PT-FU-120
+        return self._pt_b  #Pressure Transducer b PT-OX-120
     @property
     def pt_c(self):
-        return self._pt_c #Pressure Transducer c PT-OX-210
+        return self._pt_c  #Pressure Transducer c PT-FU-130
     @property
     def pt_d(self):
-        return self._pt_d #Pressure Transducer d PT-FU-310
+        return self._pt_d  #Pressure Transducer d PT-OX-210
     @property
     def pt_e(self):
-        return self._pt_e #Pressure Transducer e PT-OX-220
+        return self._pt_e  #Pressure Transducer e PT-FU-310
     @property
     def pt_f(self):
-        return self._pt_f #Pressure Transducer f PT-FU-320
+        return self._pt_f  #Pressure Transducer f PT-OX-220
     @property
     def pt_g(self):
-        return self._pt_g #Pressure Transducer g PT-CC-410
+        return self._pt_g  #Pressure Transducer g PT-FU-320
+    @property
+    def pt_h(self):
+        return self._pt_h  #Pressure Transducer h PT-CC-410
 
     @pt_a.setter
     def pt_a(self, pt_a):
-        self._pt_a = pt_a  #Set Pressure Transducer a PT-OX-110 Limit
+        self._pt_a = pt_a  #Set Pressure Transducer a PT-PR-110 Limit
     @pt_b.setter
     def pt_b(self, pt_b):
-        self._pt_b = pt_b  #Set Pressure Transducer b PT-FU-120 Limit
+        self._pt_b = pt_b  #Set Pressure Transducer b PT-OX-120 Limit
     @pt_c.setter
     def pt_c(self, pt_c):
-        self._pt_c = pt_c  #Set Pressure Transducer c PT-OX-210 Limit
+        self._pt_c = pt_c  #Set Pressure Transducer c PT-FU-130 Limit
     @pt_d.setter
     def pt_d(self, pt_d):
-        self._pt_d = pt_d  #Set Pressure Transducer d PT-FU-310 Limit
+        self._pt_d = pt_d  #Set Pressure Transducer d PT-OX-210 Limit
     @pt_e.setter
     def pt_e(self, pt_e):
-        self._pt_e = pt_e  #Set Pressure Transducer e PT-OX-220 Limit
+        self._pt_e = pt_e  #Set Pressure Transducer e PT-FU-310 Limit
     @pt_f.setter
     def pt_f(self, pt_f):
-        self._pt_f = pt_f  #Set Pressure Transducer f PT-FU-320 Limit
+        self._pt_f = pt_f  #Set Pressure Transducer f PT-OX-220 Limit
     @pt_g.setter
     def pt_g(self, pt_g):
-        self._pt_g = pt_g  #Set Pressure Transducer g PT-CC-410 Limit
+        self._pt_g = pt_g  #Set Pressure Transducer g PT-FU-320 Limit
+    @pt_h.setter
+    def pt_h(self, pt_h):
+        self._pt_h = pt_h  #Set Pressure Transducer g PT-CC-410 Limit
 
 
 class TCLimits(object):
@@ -93,6 +102,7 @@ class TCLimits(object):
         k : thermocouple T-CC-420
         l : thermocouple T-CC-430
         """
+
     def __init__(self, tc_a=83, tc_b=303, tc_c=73, tc_d=73, tc_e=73, tc_f=73, tc_g=303, tc_h=73, tc_i=73, tc_j=573, tc_k=573, tc_l=573):
         self._tc_a = tc_a
         self._tc_b = tc_b
@@ -197,6 +207,7 @@ class LCLimits(object):
         b : load cell LC-FU-310
         c : load cell LC-CC-410
         """
+
     def __init__(self, lc_a=600, lc_b=600, lc_c=3000):
         self._lc_a = lc_a
         self._lc_b = lc_b
@@ -228,7 +239,86 @@ class LCLimits(object):
         self._lc_c = lc_c  #Set Load Cell a LC-CC-410 Limit
 
 
+class PTData(object):
+    """The Pressure Transducer Data collected.
 
+        Attributes
+        ----------
+        pt_data : pressure transducer data array [8]
+        """
+
+    def __init__(self, pt_data=[0]*8):
+        self._pt_data = pt_data #Pressure Transducers
+
+    @property
+    def pt_data(self):
+        return self._pt_data
+
+    @pt_data.setter
+    def pt_data(self, pt_data):
+        self._pt_data = pt_data
+
+
+class TCData(object):
+    """The Thermocouple Data collected.
+
+        Attributes
+        ----------
+        tc_data : thermocouple data array [12]
+        """
+
+    def __init__(self, tc_data = [0]*12):
+        self._tc_data = tc_data  #Thermocouple
+
+    @property
+    def tc_data(self):
+        return self._tc_data
+
+    @tc_data.setter
+    def tc_data(self, tc_data):
+        self._tc_data = tc_data
+
+
+class LCData(object):
+    """The Load Cell data collected.
+
+        Attributes
+        ----------
+        lc_data : load cell data array [3]
+        """
+
+    def __init__(self, lc_data=[0]*3):
+        self._lc_data = lc_data  #Load Cells
+
+    @property
+    def lc_data(self):
+        return self._lc_data
+
+    @lc_data.setter
+    def lc_data(self, lc_data):
+        self._lc_data = lc_data
+
+
+class LSData(object):
+    """The State of a Limit Switch determines if a valve is 'opened' or 'closed'.
+
+        Attributes
+        ----------
+        ls_state : limit switch data array [11]
+        """
+
+    def __init__(self, ls_state = [0]*11):
+
+        self._ls_state = [ls_state]
+
+
+    @property
+    def ls_state(self):
+        return self._ls_state
+
+    @ls_state.setter
+    def ls_state(self, ls_data):
+        self._ls_state = ls_data
 
 
 if __name__ == '__main__':
