@@ -1,7 +1,7 @@
 import numpy as np
 
 # local imports
-from functions.classes import UpperClass as ucl
+from classes import UpperClass as ucl
 
 
 def _init_upper_class(*args):
@@ -26,50 +26,6 @@ def _init_upper_class(*args):
     """
     upper_class = ucl()
     return upper_class
-
-
-def _init_system(*args):
-    """Initialize the element lengths of adjustable class arrays by calling a series of sub-functions which
-       allow for altering of element lengths.
-
-       NOTE: THIS FUNCTION SHOULD ONLY BE CALLED ONCE DURING INITIALIZATION. OVERWRITING ELEMENT LENGTH VALUES
-             COULD ENDANGER THE SYSTEM AND RESULT IN MISSED SENSOR READINGS!
-
-                Arguments
-                ---------
-                args[0] : ucl --> UpperClass Instance
-                args[1] : valve_number --> length of valve_state
-
-                Nested Functions
-                ----------------
-                __set_control_elements : edit element lengths of Controls subclass arrays
-
-                Returns
-                -------
-                N/A
-    """
-    __set_control_elements(args[0], args[1])
-
-
-def __set_control_elements(*args):
-    """Access protected class data and edit the element lengths of valve_state and go_state.
-
-       NOTE: THIS FUNCTION SHOULD NEVER BE DIRECTLY ACCESSED. '_init_system' SHOULD BE THE ONLY CALL TO
-             THIS FUNCTION, AND SHOULD ONLY BE CALLED ONCE DURING INITIALIZATION. OVERWRITING ELEMENT
-             LENGTH VALUES COULD ENDANGER THE SYSTEM AND RESULT IN MISSED SENSOR READINGS!
-
-                Arguments
-                ---------
-                args[0] : ucl --> UpperClass Instance
-                args[1] : valve_number --> length of valve_state
-                args[2] : go_elements --> length of go_state
-
-                Returns
-                -------
-                N/A
-    """
-    args[0].Controls.valve_number = args[1]
-    args[0].Controls.set_valve_number()
 
 
 def getValveState(*args):
@@ -139,7 +95,8 @@ def labview_to_python(*args):
 
                 Arguments
                 ---------
-                args[0] : Data passed from Labview to Python
+                args[0] : ucl --> UpperClass Instance
+                args[1] : Data passed from Labview to Python
 
                 Nested Functions
                 ----------------
@@ -164,18 +121,13 @@ def labview_to_python(*args):
                         state[0] = 'Safe'
                         state[1] = 'Active'
     """
-    setValveState(args[0][0])
-    return getValveState()
+    setValveState(args[0], args[1])
+    return getValveState(args[0])
 
 
 if __name__ == '__main__':
     ucl = _init_upper_class()
     valve_state0 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     valve_state1 = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-    valve_state2 = [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0]
-
-
-
-
-
-
+    print(ucl.Controls.ValveState.valve_state)
+    print(labview_to_python(ucl, valve_state1))
