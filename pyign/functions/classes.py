@@ -32,7 +32,7 @@ class UpperClass(object):
                     go_elements : Integer used to determine how many Go/NoGo elements are in a System
         """
 
-        def __init__(self, valve_number=11, go_elements=3):
+        def __init__(self, valve_number=1, go_elements=3):
             self.ValveState = self.ValveState()
             self.GoState = self.GoState()
             self.IgnitorState = self.IgnitorState()
@@ -86,7 +86,7 @@ class UpperClass(object):
                     state[1] : 'Active'
             """
 
-            def __init__(self, valve_state=[0]):
+            def __init__(self, valve_state=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]):
                 self._valve_state = valve_state
 
             @property
@@ -637,35 +637,35 @@ if __name__ == '__main__':
 
     ## Test Controls Class (valves, ignitor, abort, nanny, go)
     '''
-    
+
     # Test ValveState
-    
+
     a.Controls.set_valve_number(5)
     print(a.Controls.ValveState.valve_state)
     a.Controls.ValveState.valve_state = [0, 0, 1, 0, 0]
     print(a.Controls.ValveState.valve_state)
-    
+
     # Test GoState
-    
+
     a.Controls.set_go_elements(3)
     print(a.Controls.GoState.go_state)
     a.Controls.GoState.go_state = [0, 1, 0]
     print(a.Controls.GoState.go_state)
-    
+
     # Test IgnitorState
-    
+
     print(a.Controls.IgnitorState.ignitor_state)
     a.Controls.IgnitorState.ignitor_state = 1
     print(a.Controls.IgnitorState.ignitor_state)
-    
+
     # Test AbortState
-    
+
     print(a.Controls.AbortState.abort_state)
     a.Controls.AbortState.abort_state = 1
     print(a.Controls.AbortState.abort_state)
-    
+
     # Test NannyState
-    
+
     print(a.Controls.NannyState.nanny_state)
     a.Controls.NannyState.nanny_state = 1
     print(a.Controls.NannyState.nanny_state)
@@ -709,7 +709,7 @@ if __name__ == '__main__':
 
     ## Test Limit Class (PTLimit, TCLimit, LCLimit, LSLimit)
     '''
-    
+
     # Test PTLimit
 
     a.Limit.set_pt_number(8)
@@ -742,7 +742,7 @@ if __name__ == '__main__':
     ###
 
     ## Test Time Class (TimeDelay, TimeRegime)
-
+    '''
 
     # Test TimeDelay
 
@@ -756,4 +756,4 @@ if __name__ == '__main__':
     print(a.TimeState.TimeRegime.time_regime)
     a.TimeState.TimeRegime.time_regime = 3
     print(a.TimeState.TimeRegime.time_regime)
-
+    '''
